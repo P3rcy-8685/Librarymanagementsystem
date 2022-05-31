@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+
+    <title>okay</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>HELLO ADMIN SIRRRRR</h1>
+    <h2> Add Books?</h2>
+    <form action="/admin/addbooks" method="post">
+        <label for="code">Code  of Book</label>
+        <input type="text" name="code" id="code"><br>
+        <label for="book">Name_of_Book</label>
+        <input type="text" name="book" id="book"><br>
+        <input type="submit" class="btn btn-primary" value="Add"><br></form>
+<br>
+
+
+    <form action="/admin/request"><button class="btn btn-primary">Show Requested Books</button></form>
+    <% if (locals.request) { %>
+        <% var x=1 %>
+        
+
+            <% result.forEach(function(obj) { %>
+                <table>
+                    <tr>
+                    <th>Name</th>
+                    <th>Requested By</th>
+                    <th>Approve?</th>
+                    <th>Confirm?</th>
+                    <tbody id="myTable">
+            <tr>
+              <td><%= obj.name %></td>
+              <td><%= obj.Issued_by %></td>
+              <form action="/admin/aprove" method="post">
+                <td><input type="hidden" name="book" value='<%= obj.name%>' >
+                <input type="hidden" name="issue" value=<%= obj.Issued_by%> >
+
+                <label for="Yes">Yes</label>
+                <input type="radio" name="aprove" value="1">
+                <label for="No">No</label>
+                <input type="radio" name="aprove" value="0"><br></td>
+                <td><input type="submit" class="btn btn-primary" value="Sure?"><br></td></form>
+              
+        </tbody>
+    </table> 
+   
+    </form> 
+    <% x++;}); %>
+    <% } %>
+    <br>
+
+    <form action="/admin/avail"><button class="btn btn-primary">Show Available Books</button></form>
+    <% if (locals.avail) { %>
+        <% var x=1 %>
+            <% result.forEach(function(obj) { %>
+                <table>
+                    <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <tbody id="myTable">
+            <tr>
+              <td><%= obj.Sno %></td>
+              <td><%= obj.Book %></td>
+        </tbody>
+    </table> 
+    <% x++;}); %>
+    <% } %>
+    <br>
+
+    <form action="/admin/issue"><button class="btn btn-primary">Show Issued Books</button></form>
+    <% if (locals.issue) { %>
+        <% var x=1 %>
+            <% result.forEach(function(obj) { %>
+                <table>
+                    <tr>
+                    <th>Name</th>
+                    <th>Issued By</th>
+                    <tbody id="myTable">
+            <tr>
+              <td><%= obj.name %></td>
+              <td><%= obj.Issued_by %></td>
+
+        </tbody>
+    </table> 
+    <% x++;}); %>
+    <% } %>
+
+    <br>
+
+    <form action="/admin/adminreq"><button class="btn btn-primary">Show Requested Admins</button></form>
+    <% if (locals.admin) { %>
+        <% var x=1 %>
+        
+
+            <% result.forEach(function(obj) { %>
+                <table>
+                    <tr>
+                    <th>Enrollment</th>
+                    <th>Name</th>
+                    <th>Approve?</th>
+                    <th>Confirm?</th>
+                    <tbody id="myTable">
+            <tr>
+              <td><%= obj.enrol %></td>
+              <td><%= obj.Name %></td>
+              <form action="/admin/adminyes" method="post">
+                <td><input type="hidden" name="Sno" value=<%= obj.enrol%> >
+                <label for="Yes">Yes</label>
+                <input type="radio" name="aprove" value="1">
+                <label for="No">No</label>
+                <input type="radio" name="aprove" value="0"><br></td>
+                <td><input type="submit" class="btn btn-primary" value="Sure?"><br></td></form>
+              
+        </tbody>
+    </table> 
+   
+    </form> 
+    <% x++;}); %>
+    <% } %><br>
+
+    <a href="/auth/logout"><button class="btn btn-primary">Logout</button></a>
+</body>
+</html>

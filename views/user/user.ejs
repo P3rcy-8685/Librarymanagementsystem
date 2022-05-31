@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/user.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>okay</title>
+    <style>
+        table,th,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>HELLO USER SIRRRRR</h1>
+    <form action="/userroutes/mybooks" method="post">
+        <input type="hidden" name="enrol" value=<%= enrol%> >
+        <br>
+        <input type="submit" class="btn btn-primary" value="View My Books">
+    </form>
+        <% if (locals.books) { %>
+            <% var x=1 %>
+                <% result.forEach(function(obj) { %>
+                    <table>
+                        <tr>
+                        <th>Name</th>
+                        <tbody id="myTable">
+                <tr>
+                  <td><%= obj.name %></td>
+            </tbody>
+        </table> 
+        <br>
+        <% x++;}); %>
+        <% } %>
+        <br>
+
+    <form action="/userroutes/issuebooks" method="post">
+        <input type="hidden" name="enrol" value=<%= enrol%> >
+        <input type="submit" class="btn btn-primary" value="Issue New Book"></form>
+        <% if (locals.all) { %>
+            <% var x=1 %>    
+                <% result.forEach(function(obj) { %>
+                    <table>
+                        <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Issue?</th>
+                        <tbody id="myTable">
+                <tr>
+                  <td><%= obj.Sno %></td>
+                  <td><%= obj.Book %></td>
+                  <form action="/userroutes/issue" method="post">
+                    <input type="hidden" name="enrol" value=<%= enrol%> >
+                    <input type="hidden" name="name" value='<%= obj.Book %>' >
+                    <td><input type="submit" class="btn btn-primary" value="Put in request"><br></td></form>
+                    </tr>
+            </tbody>
+        </table> 
+        <br>
+       
+        </form> 
+        <% x++;}); %>
+        <% } %>
+        <br>
+
+        <form action="/userroutes/pendingrequest" method="post">
+            <input type="hidden" name="enrol" value=<%= enrol%> >
+            <input type="submit" class="btn btn-primary" value="See pending requests"></form>
+            <% if (locals.request) { %>
+                <% var x=1 %>
+                    <% result.forEach(function(obj) { %>
+                        <table>
+                            <tr>
+                            <th>Name</th>
+                            <tbody id="myTable">
+                    <tr>
+                      <td><%= obj.name %></td>
+                </tbody>
+            </table> 
+            <br>
+            <% x++;}); %>
+            <% } %>
+            <br>
+
+            <form action="/userroutes/rejectedrequest" method="post">
+                <input type="hidden" name="enrol" value=<%= enrol%> >
+                <input type="submit" class="btn btn-primary" value="See rejected requests"></form>
+                <% if (locals.rejected) { %>
+                    <% var x=1 %>
+                        <% result.forEach(function(obj) { %>
+                            <table>
+                                <tr>
+                                <th>Name</th>
+                                <tbody id="myTable">
+                        <tr>
+                          <td><%= obj.name %></td>
+                    </tbody>
+                </table> 
+                <br>
+                <% x++;}); %>
+                <% } %>
+                <br>
+
+                <a href="/auth/logout"><button class="btn btn-primary">Logout</button></a>
+            </body>
+</html>

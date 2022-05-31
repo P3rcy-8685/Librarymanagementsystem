@@ -1,0 +1,31 @@
+body{
+    background: url(index.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+h1{
+    position: absolute;
+    top:30%;
+    left:35%;
+    font-size: 100px;;
+    color: white;
+}
+button{
+    padding: 15px 32px;
+    font-size: 20px;;
+
+}
+#old{
+    position: absolute;
+    top:55%;
+    left:35%
+}
+#new{
+    position: absolute;
+    top:55%;
+    left:50%
+}

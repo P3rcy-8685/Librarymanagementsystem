@@ -1,0 +1,42 @@
+
+      body{
+         background: url(index.jpeg) no-repeat center center fixed; 
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       background-size: cover;
+     }
+    #ulabel,#plabel{
+       color: white;
+       font-size: 20px;
+       position: absolute;
+       left: 40%;
+    }
+    #ulabel{
+       top:30%
+    }
+    #plabel{
+       top:40%
+    }
+    #uname,#pass{
+      color: black;
+      font-size: 20px;
+      position: absolute;
+      left: 55%;
+    }
+    #uname{
+      top:30%
+   }
+   #pass{
+      top:40%
+   }
+   #submit{
+      position:absolute;
+      top:50%;
+      left:60%
+   }
+   #register{
+      position:absolute;
+      top:60%;
+      left:57%
+   }

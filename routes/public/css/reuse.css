@@ -1,0 +1,59 @@
+
+      body{
+        background: url(index.jpeg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+   #ulabel,#plabel,#alabel,#elabel{
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      left: 30%;
+   }
+   #alabel{
+       top:50%;
+       left:40%
+   }
+   #elabel{
+       top:40%
+   }
+   #ulabel{
+      top:30%;
+      left:40%
+   }
+   #plabel{
+      top:35%;
+      left: 40%;
+
+   }
+   #uname,#pass,#enr,#admin{
+     color: white;
+     font-size: 20px;
+     position: absolute;
+     left: 60%;
+   }
+   #uname{
+     top:30%;
+  }
+  #pass{
+     top:35%
+  }
+  #enr{
+    top:40%
+  }
+  #admin{
+      top:51%
+  }
+  #submit{
+     position:absolute;
+     top:60%;
+     left:60%
+  }
+  #register{
+     position:absolute;
+     top:70%;
+     left:62%;
+     font-size: 20px;
+  }
